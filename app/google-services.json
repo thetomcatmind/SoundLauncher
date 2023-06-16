@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "55462999954",
+    "project_id": "soundlauncher-843f0",
+    "storage_bucket": "soundlauncher-843f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55462999954:android:915a2644b184a740df734b",
+        "android_client_info": {
+          "package_name": "com.thetomcatmind.soundlauncher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55462999954-hop0smoetcn5ij9lna6kas3iorjfc89g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd7OIJ1uAihTi2C40qPyMySUarywtAN7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55462999954-hop0smoetcn5ij9lna6kas3iorjfc89g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

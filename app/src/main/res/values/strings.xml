@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SoundLauncher</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Login</string>
+    <string name="signin">Registrarse</string>
+    <string name="icon_description" />
+    <string name="google_sign_in">Acceder con Google</string>
+    <string name="recordar_pass">¿Has olvidado tu contraseña?</string>
+    <string name="send_reset_email">Enviar email de recuperación</string>
+    <string name="icon_change_title">Cambiar Icono</string>
+    <string name="icon_change_message">Tamaño recomendado 100x100px y formato PNG, recuerda no cambiar la ubicación del icono</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="preference_file_key">com.thetomcatmind.soundlauncher.PREFERENCE_FILE_KEY</string>
+
+</resources>

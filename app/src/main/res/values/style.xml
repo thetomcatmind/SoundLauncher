@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="botonGoogle">
+    <item name="android:background">@drawable/rounded_button_google</item>
+</style>
+</resources>

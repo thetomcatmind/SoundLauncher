@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".HomeActivity">
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/button_frame_1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+        <!-- Repite el bloque FrameLayout para los demás botones -->
+        <!-- Botón 2 -->
+        <FrameLayout
+            android:id="@+id/button_frame_2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_frame_3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_frame_4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_frame_5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_frame_6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_frame_7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_frame_8"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_frame_9"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondoboton">
+
+            <ImageView
+                android:id="@+id/button_icon_9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iconopordefecto" />
+
+            <SeekBar
+                android:id="@+id/volume_seek_bar_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:progress="100" />
+
+        </FrameLayout>
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
