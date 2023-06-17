@@ -31,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
         val usernameEditText = findViewById<EditText>(R.id.username_edittext)
         val emailEditText = findViewById<EditText>(R.id.email_edittext)
         val passwordEditText = findViewById<EditText>(R.id.password_edittext)
+        val passwordEditTextCon = findViewById<EditText>(R.id.password_edittext_con)
         val nameEditText = findViewById<EditText>(R.id.name_edittext)
         val surnameEditText = findViewById<EditText>(R.id.surname_edittext)
         val phoneEditText = findViewById<EditText>(R.id.phone_edittext)
@@ -62,14 +63,19 @@ class RegisterActivity : AppCompatActivity() {
             val username = usernameEditText.text.toString()
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
+            val passwordCon = passwordEditTextCon.text.toString()
             val name = nameEditText.text.toString()
             val surname = surnameEditText.text.toString()
             val phone = phoneEditText.text.toString().toIntOrNull()
             val birthdayString = birthdayEditText.text.toString()
             val birthday = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(birthdayString)
 
+            // Verifica si las contraseñas coinciden
+            if (password != passwordCon) {
+                // Si las contraseñas no coinciden, muestra un mensaje de error
+                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
             // Verificamos si los campos obligatorios están vacíos
-            if (username.isEmpty() || email.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty()) {
+            }else if (username.isEmpty() || email.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty()) {
                 // Si alguno de los campos obligatorios está vacío, mostramos un mensaje de error
                 Toast.makeText(this, "Por favor, completa todos los campos obligatorios", Toast.LENGTH_SHORT).show()
             } else {
