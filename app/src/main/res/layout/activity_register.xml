@@ -124,7 +124,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:ems="10"
-            android:hint="Fecha de cumpleaños (opcional)"
+            android:hint="Fecha de nacimiento (opcional)"
             android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"

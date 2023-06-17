@@ -38,7 +38,7 @@ class RegisterActivity : AppCompatActivity() {
         val birthdayEditText = findViewById<EditText>(R.id.birthday_edittext)
         val registerButton = findViewById<Button>(R.id.register_button)
 
-        // Establecemos un listener para el campo de cumpleaños (birthdayEditText)
+        // Establecemos un listener para el campo de nacimiento (birthdayEditText)
         birthdayEditText.setOnClickListener {
             // Obtenemos la fecha actual para establecerla como fecha inicial en el selector de fecha
             val currentDate = Calendar.getInstance()
