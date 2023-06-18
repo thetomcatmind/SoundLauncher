@@ -11,11 +11,11 @@ import com.thetomcatmind.soundlauncher.firestore.FirestoreManager
 import android.app.DatePickerDialog
 import java.text.SimpleDateFormat
 import com.google.firebase.Timestamp
+import java.text.ParseException
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    // Inicializamos las instancias de FirebaseAuth y FirebaseDatabase
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
 
@@ -23,11 +23,9 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // Asignamos las instancias de FirebaseAuth y FirebaseDatabase
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
-        // Asignamos los campos de texto y el botón de registro a variables
         val usernameEditText = findViewById<EditText>(R.id.username_edittext)
         val emailEditText = findViewById<EditText>(R.id.email_edittext)
         val passwordEditText = findViewById<EditText>(R.id.password_edittext)
@@ -38,28 +36,27 @@ class RegisterActivity : AppCompatActivity() {
         val birthdayEditText = findViewById<EditText>(R.id.birthday_edittext)
         val registerButton = findViewById<Button>(R.id.register_button)
 
-        // Establecemos un listener para el campo de nacimiento (birthdayEditText)
         birthdayEditText.setOnClickListener {
-            // Obtenemos la fecha actual para establecerla como fecha inicial en el selector de fecha
             val currentDate = Calendar.getInstance()
             val year = currentDate.get(Calendar.YEAR)
             val month = currentDate.get(Calendar.MONTH)
             val day = currentDate.get(Calendar.DAY_OF_MONTH)
 
-            // Crea un DatePickerDialog que permita al usuario seleccionar una fecha
-            val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-                // Actualiza el campo de texto con la fecha seleccionada por el usuario
-                val formattedDate = String.format("%02d-%02d-%04d", selectedDay, selectedMonth + 1, selectedYear)
-                birthdayEditText.setText(formattedDate)
-            }, year, month, day)
+            val datePickerDialog =
+                DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                    val formattedDate = String.format(
+                        "%02d-%02d-%04d",
+                        selectedDay,
+                        selectedMonth + 1,
+                        selectedYear
+                    )
+                    birthdayEditText.setText(formattedDate)
+                }, year, month, day)
 
-            // Muestra el selector de fecha
             datePickerDialog.show()
         }
 
-        // Establecemos un listener para el botón de registro
         registerButton.setOnClickListener {
-            // Obtenemos el texto de los campos de texto
             val username = usernameEditText.text.toString()
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -68,36 +65,51 @@ class RegisterActivity : AppCompatActivity() {
             val surname = surnameEditText.text.toString()
             val phone = phoneEditText.text.toString().toIntOrNull()
             val birthdayString = birthdayEditText.text.toString()
-            val birthday = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(birthdayString)
 
-            // Verifica si las contraseñas coinciden
-            if (password != passwordCon) {
-                // Si las contraseñas no coinciden, muestra un mensaje de error
-                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
-            // Verificamos si los campos obligatorios están vacíos
-            }else if (username.isEmpty() || email.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty()) {
-                // Si alguno de los campos obligatorios está vacío, mostramos un mensaje de error
-                Toast.makeText(this, "Por favor, completa todos los campos obligatorios", Toast.LENGTH_SHORT).show()
+            val birthday: Date? = if (birthdayString.isEmpty()) {
+                null
             } else {
-                // Si todos los campos obligatorios están llenos, procedemos con el registro
+                try {
+                    SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(birthdayString)
+                } catch (e: ParseException) {
+                    null
+                }
+            }
+
+            if (password != passwordCon) {
+                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+            } else if (username.isEmpty() || email.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty()) {
+                Toast.makeText(
+                    this,
+                    "Por favor, completa todos los campos obligatorios",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            // Si el registro es exitoso, obtenemos el ID del usuario y guardamos sus datos en la base de datos
                             val userId = auth.currentUser?.uid ?: ""
-                            val user = User(username, email, name, surname, phone, birthday?.let { Timestamp(it) })
+                            val user = User(
+                                username,
+                                email,
+                                name,
+                                surname,
+                                phone,
+                                birthday?.let { Timestamp(it) })
                             FirestoreManager.addUserData(user)
 
                             Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
                             finish()
                         } else {
-                            // Si el registro falla, mostramos un mensaje de error
-                            Toast.makeText(this, "Error en el registro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "Error en el registro: ${task.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
             }
         }
-
-
     }
 }
+
